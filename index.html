@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>랜덤 20글자 닉네임 생성기</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/alertify.min.css">
+  <link rel="stylesheet" href="./css/themes/default.min.css">
+  <script src="./js/alertify.min.js"></script>
  </head>
  <body>
   <input type="text" id="randVal" value="생성중..." disabled style="font-size:1.8rem;display: table; margin-left: auto; margin-right: auto;">
@@ -26,8 +29,11 @@
   randVal.readOnly = true;
   randVal.onclick = function() {
     this.select();
-    document.execCommand('copy');
-    alert('복사되었습니다. 닉네임란에 붙여넣어주세요!');
+    if(document.execCommand('copy')) {
+      alertify.success('복사되었습니다. 닉네임란에 붙여넣어주세요!');
+    } else {
+      alertify.warning('수동으로 복사후 닉네임란에 붙여넣어주세요!');
+    }
   }
   </script>
  </body>

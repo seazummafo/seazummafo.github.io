@@ -7,7 +7,7 @@
  </head>
  <body>
   <input type="text" id="randVal" value="생성중..." disabled style="font-size:1.8rem;display: table; margin-left: auto; margin-right: auto;">
-  <input type="button" onclick="generateNick(this)" value="재생성" style="font-size:1.5rem;display: table; margin-left: auto; margin-right: auto;">
+  <input type="button" onclick="generateNick(document.getElementById('randVal'))" value="재생성" style="font-size:1.5rem;display: table; margin-left: auto; margin-right: auto;">
   <script>
   function generateNick(randVal) {
     var result = "";

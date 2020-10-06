@@ -7,7 +7,7 @@
  </head>
  <body>
   <input type="text" id="randVal" value="생성중..." disabled style="font-size:1.8rem;display: table; margin-left: auto; margin-right: auto;">
-  <input type="button" onclick="generateNick(randVal)" value="재생성" style="font-size:1.5rem;display: table; margin-left: auto; margin-right: auto;">
+  <input type="button" onclick="generateNick(this)" value="재생성" style="font-size:1.5rem;display: table; margin-left: auto; margin-right: auto;">
   <script>
   function generateNick(randVal) {
     var result = "";
@@ -17,6 +17,7 @@
       result = Math.floor(Math.random() * (9999999999 - 1000000000) + 1000000000).toString() + Math.floor(Math.random() * (9999999999 - 1000000000) + 1000000000).toString();
       if(i > 1000 || result.match(/(\d)\1{3,}/) === null) break;
     }
+    randVal.value = result;
     randVal.style.width = randVal.value.length + "ch";
   }
   var randVal = document.getElementById('randVal');
